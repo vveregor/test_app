@@ -74,7 +74,10 @@ function UsersList() {
 const styles = StyleSheet.create({
     root: {flex: 1},
     paginationContainer: {
-        minHeight: 50,
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        width: '100%',
     },
     headerContainer: {
         ...COMMON_STYLES.mt_1,

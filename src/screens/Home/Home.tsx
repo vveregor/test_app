@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 
 import UsersList from './components/UsersList';
 import {store} from '../../app/store';
-console.log('store', store);
+
 const Home = () => (
     <Provider store={store}>
         <SafeAreaView style={styles.root}>

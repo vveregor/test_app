@@ -2,20 +2,21 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import React from 'react';
 import {Provider} from 'react-redux';
 
-import UsersList from './components/UsersList';
 import {store} from '../../app/store';
+import UserProfile from './components/UserProfile';
 
 interface IProps {
     componentId: string;
+    userId: number;
 }
 
-const Home = (props: IProps) => {
-    const {componentId} = props;
+const User = (props: IProps) => {
+    const {userId} = props;
 
     return (
         <Provider store={store}>
             <SafeAreaView style={styles.root}>
-                <UsersList componentId={componentId} />
+                <UserProfile userId={userId} />
             </SafeAreaView>
         </Provider>
     );
@@ -23,4 +24,4 @@ const Home = (props: IProps) => {
 
 const styles = StyleSheet.create({root: {flex: 1}});
 
-export default Home;
+export default User;

@@ -5,6 +5,7 @@ export type TUser = {
     name: string;
     age: number;
     avatar: string;
+    like?: boolean;
 };
 
 export type TUsers = TUser[];
@@ -20,4 +21,8 @@ export function fetchUser(userId: number) {
     return new Promise<{data: TUser | null}>(resolve =>
         setTimeout(() => resolve({data: JSONUsers.find(item => item.id === userId) || null}), 1000),
     );
+}
+
+export function likeUser(userId: number) {
+    return new Promise<{userId: number}>(resolve => setTimeout(() => resolve({userId}), 1000));
 }

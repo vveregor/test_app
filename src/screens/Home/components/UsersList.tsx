@@ -13,7 +13,12 @@ import {Loader} from './Loader/Loader';
 import Pagination from './Pagination';
 import {UserItem} from './UserItem';
 
-function UsersList() {
+interface IProps {
+    componentId: string;
+}
+
+function UsersList(props: IProps) {
+    const {componentId} = props;
     const [filter, setFilter] = React.useState('');
     const dispatch = useAppDispatch();
     const [currentPage, setCurrentPage] = useState(1);
@@ -43,10 +48,10 @@ function UsersList() {
     const renderItem = useCallback(
         (item: TUser) => (
             <View key={item.id} style={styles.itemWrapper}>
-                <UserItem onRemove={handleRemoveUser} item={item} />
+                <UserItem onRemove={handleRemoveUser} item={item} componentId={componentId} />
             </View>
         ),
-        [handleRemoveUser],
+        [handleRemoveUser, componentId],
     );
 
     return (
